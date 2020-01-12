@@ -1,0 +1,33 @@
+{
+  "name": "AirbnbReview Helper",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension was created because of my laziness",
+  "homepage_url": "http://kiuhouses.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "src/options/index.html",
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.airbnb.com/reviews/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "src/inject/inject.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
